@@ -19,3 +19,5 @@ class Categoria(ClaseModelo):
 
     class Meta:
         verbose_name_plural = "categorias"
+
+        # ver los cambios 
