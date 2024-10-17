@@ -82,7 +82,7 @@ DATABASES = {
         'NAME':'db_djfull',
         'HOST': 'localhost',
         'USER': 'debs',
-        'PASSWORD': '123456',
+        'PASSWORD': 'zulma123$',
         'PORT': '5432',
     }
 }
