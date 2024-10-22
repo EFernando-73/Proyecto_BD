@@ -3,7 +3,7 @@ from pyexpat.errors import messages
 from django.forms import BaseModelForm
 from django.http import HttpResponse
 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import generic
 from django.urls import reverse_lazy
 
