@@ -89,9 +89,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME':'db_djful',
         'HOST': 'localhost',
+        
         'USER': 'postgres',
         'PASSWORD': 'denisaxi24',
         'PORT': '5435',
+
     }
 }
 
