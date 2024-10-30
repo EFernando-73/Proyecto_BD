@@ -21,11 +21,6 @@
   
   <!-- Custom styles for this page -->
   <link href="{% static 'base/vendor/datatables/dataTables.bootstrap4.min.css'%}" rel="stylesheet">
-  <!-- JQuery Confirm-->
-  <link href="{% static 'base/vendor/jquery_confirm/jquery-confirm.min.css'%}" rel="stylesheet">
-
-   <!-- XDSoft DateTimePicker -->  
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
 
 </head>
 
@@ -43,7 +38,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SCF-- <sup>Django</sup></div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
       </a>
 
       <!-- Divider -->
@@ -73,45 +68,16 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Catalogos de inventario:</h6>
-            {% if perms.inv.view_categoria %}
             <a class="collapse-item" href="{% url 'inv:categoria_list' %}">Categorias</a>
-            {% endif %}
-            {% if perms.inv.view_subcategoria %}
             <a class="collapse-item" href="{% url 'inv:subcategoria_list' %}">SubCategorias</a>
-            {% endif %}
-            {% if perms.inv.view_marca %}
             <a class="collapse-item" href="{% url 'inv:marca_list' %}">Marca</a>
-            {% endif %}
-            {% if perms.inv.view_unidadmedida %}
-            <a class="collapse-item" href="{% url 'inv:um_list' %}">Unidad Medida</a>
-            {% endif %}
-            {% if perms.inv.view_producto %}
-            <a class= "collapse-item" href="{% url 'inv:producto_list'%}">Producto</a>
-            {% endif %}
-            
-            <h6 class="collapse-header">Catálogos de Compras:</h6>
-            
-            {% if perms.cmp.view_proveedor %}
-            <a class="collapse-item" href="{% url 'cmp:proveedor_list' %}">Proveedores</a>
-            {% endif %}
+            <a class="collapse-item" href="{% url 'inv:marca_list' %}">Unidad Medida</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
           </div>
         </div>
       </li>
-      <li class="nav-item {% if cmp_url in request.path  %} active {% endif %}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCompras" aria-expanded="true" aria-controls="collapseCompras">
-          <i class="fas fa-fw fa-truck"></i>
-          <span>Movimientos</span>
-        </a>
-        <div id="collapseCompras" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Entradas</h6>
-            <a class="collapse-item" href="{% url 'cmp:compras_list' %}">Compras</a>
-          </div>
-        </div>
-      </li>
-     
 
-      <!-- Nav Item - Utilities Collapse Menu 
+      <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
@@ -126,7 +92,7 @@
             <a class="collapse-item" href="utilities-other.html">Other</a>
           </div>
         </div>
-      </li>-->
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -136,7 +102,7 @@
         Addons
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu 
+      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
@@ -154,14 +120,14 @@
             <a class="collapse-item active" href="blank.html">Blank Page</a>
           </div>
         </div>
-      </li> -->
+      </li>
 
-      <!-- Nav Item - Charts 
+      <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
-      </li> -->
+      </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
@@ -192,12 +158,12 @@
          {% block top_bar  %}
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) 
+          <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button> -->
+          </button>
 
-          <!-- Topbar Search 
+          <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -207,17 +173,17 @@
                 </button>
               </div>
             </div>
-          </form>-->
+          </form>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) 
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
-              <!-- Dropdown - Messages 
+              <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
@@ -230,16 +196,16 @@
                   </div>
                 </form>
               </div>
-            </li> -->
+            </li>
 
-            <!-- Nav Item - Alerts 
+            <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
-                < Counter - Alerts 
+                <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
-              < Dropdown - Alerts 
+              <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
@@ -279,16 +245,16 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
-            </li> -->
+            </li>
 
-            <!-- Nav Item - Messages 
+            <!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
-                <Counter - Messages 
+                <!-- Counter - Messages -->
                 <span class="badge badge-danger badge-counter">7</span>
               </a>
-              < Dropdown - Messages 
+              <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                   Message Center
@@ -335,19 +301,19 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>
-            </li> -->
+            </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.username }}</span>
-                <img class="img-profile rounded-circle" src="{% static 'base/img/user.png' %}">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <!-- <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -358,11 +324,11 @@
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                   Activity Log
-                </a>-->
+                </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  SALIR
+                  Logout
                 </a>
               </div>
             </li>
@@ -380,7 +346,7 @@
 
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">VENTANA PRINCIPAL</h1>
+          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
         </div>
         
@@ -396,7 +362,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span> &copy; </span>
+            <span>Copyright &copy; Your Website 2019</span>
           </div>
         </div>
       </footer>
@@ -420,25 +386,22 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">¿Cerrar Sesión para <mark> {{ user.username}} </mark>?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Al dar Click en el boton Salir,cerrará la sesion para <mark> {{user.username}} </mark>. </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
         <form method="POST" action="{% url 'bases:logout' %}">
-          {% csrf_token %}
-          <button class="btn btn-primary" type="submit">Salir</button>
-          </form>
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">Salir</button>
+        </form>
         </div>
       </div>
     </div>
   </div>
-
-  <div class = "modal fade" id = "popup"></div>
-
 
   <!-- Bootstrap core JavaScript-->
   <script src="{% static  'base/vendor/jquery/jquery.min.js' %}"></script>
@@ -452,65 +415,8 @@
 
   <!-- Page level plugins -->
   <script src="{% static 'base/vendor/datatables/jquery.dataTables.min.js'%}"></script>
-  <script src="{% static 'base/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>   
+  <script src="{% static 'base/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
 
-  <script src="{% static 'base/vendor/jquery_confirm/jquery-confirm.min.js' %}"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>  
-
-
-  <script>
-    $(document).ready(function () {
-      jQuery.datetimepicker.setLocale('es');
-    });
-</script>
-
-  {% block control_modal%}
-  <script>
-    function abrir_modal(url)
-    {
-      $("#popup").load(url, function(){
-        $(this).modal({
-          backdrop:'static',
-          keyboard: false
-        })
-        $(this).modal('show');
-      });
-      return false;
-    }
- 
-    function cerrar_modal()
-    {
-      $('#popup').modal('hide');
-      return false; 
-
-    }
-    function mensaje(msg,color='green'){
-
-      if (color=="success"){
-        color="green";
-      }
-      if (color=="error"){
-        color="red";
-      }
-
-      $.alert({
-        title:'',
-        theme:'material',
-        type:color,
-        content:msg
-      });
-    }
-
-    {% if messages %}
-      {% for message in messages%}
-        //console.log("{{ message.tags }}");
-        mensaje("{{ message }}","{{ message.tags }}"); 
-      {% endfor %}
-    {% endif %}
-
-  </script>
-  {% endblock %}
   {% block js_page %} {% endblock %}
 </body>
 
