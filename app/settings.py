@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bases',
     'inv',
+    'cmp',
 ]
 
 MIDDLEWARE = [
@@ -87,11 +88,13 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'db_djfull',
+        'NAME':'db_djful',
         'HOST': 'localhost',
-        'USER': 'debs',
-        'PASSWORD': '123456',
-        'PORT': '5432',
+        
+        'USER': 'postgres',
+        'PASSWORD': 'denisaxi24',
+        'PORT': '5435',
+
     }
 }
 
