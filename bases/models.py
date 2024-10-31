@@ -25,6 +25,5 @@ class ClaseModelo2(models.Model):
     uc = UserForeignKey(auto_user_add = True,related_name="+")
     um = UserForeignKey(auto_user=True,related_name="+")
 
-
     class Meta:
         abstract=True
