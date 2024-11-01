@@ -27,6 +27,7 @@ class CategoriaView(SinPrivilegios,\
 class CategoriaNew(SuccessMessageMixin,SinPrivilegios,\
     generic.CreateView):
     model = Categoria
+    permission_required= "cmp.add_proveedor"
     template_name="inv/categoria_form.html"
     context_object_name = "obj"
     form_class = CategoriaForm
@@ -40,6 +41,7 @@ class CategoriaNew(SuccessMessageMixin,SinPrivilegios,\
 
 class CategoriaEdit(SuccessMessageMixin,SinPrivilegios, \
     generic.UpdateView):
+    permission_required="inv.change_categoria"
     model = Categoria
     template_name="inv/categoria_form.html"
     context_object_name = "obj"
