@@ -46,6 +46,7 @@ class CategoriaEdit(SuccessMessageMixin,SinPrivilegios, \
     form_class = CategoriaForm
     success_url=reverse_lazy("inv:categoria_list")
     success_message="Categoria Actualizada"
+    permission_required="inv.add_categoria"
     
     def form_valid(self, form):
         form.instance.um = self.request.user.id
