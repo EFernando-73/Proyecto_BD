@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from django.urls import reverse_lazy
 import datetime
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.decorators import login_required, permission_required
@@ -15,6 +15,8 @@ from cmp.forms import ProveedorForm, ComprasEncForm
 from bases.views import SinPrivilegios
 from inv.models import Producto
 
+
+
 class ProveedorView(SinPrivilegios,\
     generic.ListView):
     permission_required = "inv.view_proveedor"
@@ -23,7 +25,7 @@ class ProveedorView(SinPrivilegios,\
     context_object_name = "obj"
     
 
-class ProveedorNew(SuccessMessageMixin,SinPrivilegios, generic.CreateView):
+class ProveedorNew(SuccessMessageMixin, SinPrivilegios, generic.CreateView):
     model=Proveedor
     template_name="cmp/proveedor_form.html"
     context_object_name = 'obj'
@@ -34,10 +36,11 @@ class ProveedorNew(SuccessMessageMixin,SinPrivilegios, generic.CreateView):
     
     def form_valid(self, form):
         form.instance.uc = self.request.user
-        print(self.request.user.id)
+        #print(self.request.user.id)
         return super().form_valid(form)
+    
 
-class ProveedorEdit(SuccessMessageMixin,SinPrivilegios, generic.UpdateView):
+class ProveedorEdit(SuccessMessageMixin, SinPrivilegios, generic.UpdateView):
     model=Proveedor
     template_name="cmp/proveedor_form.html"
     context_object_name = 'obj'
@@ -49,8 +52,8 @@ class ProveedorEdit(SuccessMessageMixin,SinPrivilegios, generic.UpdateView):
     def form_valid(self, form):
         form.instance.um = self.request.user.id
         print(self.request.user.id)
-        return super().form_valid(form)
-       
+        return super().form_valid(form) 
+
 @login_required(login_url="/login/")
 @permission_required("cmp.change_proveedor",login_url="/login/")
 def proveedorInactivar(request,id):

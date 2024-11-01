@@ -16,6 +16,7 @@ class ProveedorForm(forms.ModelForm):
                 'class': 'form-control'
             })
 
+
 class ComprasEncForm(forms.ModelForm):
     fecha_compra = forms.DateInput()
     fecha_factura = forms.DateInput()

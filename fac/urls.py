@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from fac.reportes import imprimir_factura_recibo
+from fac.reportes import imprimir_factura_recibo, imprimir_factura_list
 
 
 from .views import ClienteView,ClienteNew,ClienteEdit, FacturaView, clienteInactivar,\
@@ -24,7 +24,7 @@ urlpatterns = [
 
     path('facturas/imprimir/<int:id>',imprimir_factura_recibo, name="factura_imprimir_one"),
 
-    # path('facturas/imprimir-todas/<str:f1>/<str:f2>',imprimir_factura_list, name="factura_imprimir_all"),
+    path('facturas/imprimir-todas/<str:f1>/<str:f2>',imprimir_factura_list, name="factura_imprimir_all"),
 
     # path('facturas/clientes/new/',cliente_add_modify,name="fac_cliente_add"),
     # path('facturas/clientes/<int:pk>',cliente_add_modify,name="fac_cliente_mod"),

@@ -2,6 +2,7 @@ from django.urls import path
 from django.contrib.auth import views  as auth_views
 
 from bases.views import Home, HomeSinPrivilegios
+from .views import*
 
 urlpatterns = [
 
@@ -16,5 +17,5 @@ path('logout/',
 
 path('sin_privilegios/',
      HomeSinPrivilegios.as_view(),
-     name='sin_privilegios')
+     name='sin_privilegios'),
 ]
