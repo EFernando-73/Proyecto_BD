@@ -10,8 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
-from decouple import config
-import dj_database_url
+
 from pathlib import Path 
 from django.contrib.messages import constants as messages
 
@@ -23,13 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-v(ynfqa41mx@s%-5%y6q4mg+v0+)zhh&25@$%txs6_gwkc*4to'
+SECRET_KEY = 'django-insecure-v(ynfqa41mx@s%-5%y6q4mg+v0+)zhh&25@$%txs6_gwkc*4to'
 
-SECRET_KEY=config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ["127.0.0.1",".herokuapp.com"]
+DEBUG = True
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -65,7 +62,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_userforeignkey.middleware.UserForeignKeyMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -95,12 +91,11 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'db_djful',
+        'NAME':'db_djfull',
         'HOST': 'localhost',
-        'USER': 'postgres',
-        'PASSWORD': 'denisaxi24',
-        'PORT': '5435',
-
+        'USER': 'debs',
+        'PASSWORD': '123456',
+        'PORT': '5432',
     }
 }
 
@@ -138,17 +133,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static'),]
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
